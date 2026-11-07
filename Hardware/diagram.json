@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "author": "João Pedro Morangoni",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic", "top": -100, "left": 300, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht", "top": 150, "left": 300, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ultrasonic:VCC", "esp:3V3", "red", [] ],
+    [
+      "ultrasonic:GND",
+      "esp:GND.1",
+      "black",
+      [ "v15.1", "h-190.1", "v-28.8", "h-230.4", "v172.8" ]
+    ],
+    [ "ultrasonic:TRIG", "esp:5", "green", [ "v82.3", "h-122.1", "v38.4" ] ],
+    [ "ultrasonic:ECHO", "esp:18", "blue", [ "v34.3", "h-237.7", "v76.8" ] ],
+    [ "dht:VCC", "esp:3V3", "red", [ "v23.1", "h-343.8", "v-259.2" ] ],
+    [ "dht:GND", "esp:GND.2", "black", [ "v13.5", "h-113.4", "v-249.6", "h-129.64" ] ],
+    [ "dht:SDA", "esp:4", "green", [ "v32.7", "h-132.5", "v-153.6" ] ]
+  ],
+  "dependencies": {}
+}
