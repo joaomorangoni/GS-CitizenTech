@@ -1,0 +1,8 @@
+"""Limites centralizados; mantenha-os sincronizados com o firmware."""
+
+DISTANCIA_CRITICA_CM = 10.0
+DISTANCIA_ATENCAO_CM = 30.0
+UMIDADE_ALTA_PERCENT = 80.0
+TEMPERATURA_MIN_C = -40.0  # Faixa de operação do DHT22.
+TEMPERATURA_MAX_C = 80.0
+RISCOS = ("SEM_RISCO_DETECTADO", "ATENCAO", "RISCO_ALTO", "DADOS_INVALIDOS")

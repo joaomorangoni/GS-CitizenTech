@@ -1,0 +1,5 @@
+# Artefatos locais Python e banco de monitoramento
+__pycache__/
+*.py[cod]
+.venv/
+Backend/dados/
