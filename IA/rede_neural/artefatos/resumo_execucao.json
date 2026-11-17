@@ -1,0 +1,115 @@
+{
+  "python": "3.15.2",
+  "versoes": {
+    "numpy": "2.5.5",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "joblib": "1.6.0",
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.4.0"
+  },
+  "dataset_sha256": "13277ae5d8581e80b7be09d47c7d3d06fe9b8e957078f2cf6e859f955e62f996",
+  "registros_csv": 9471,
+  "registros_datados": 9357,
+  "registros_utilizados": 7344,
+  "sem_alvo": 1683,
+  "sem_entradas": 366,
+  "periodo": [
+    "2004-03-10 18:00:00",
+    "2005-04-04 14:00:00"
+  ],
+  "divisao": [
+    {
+      "conjunto": "Treino",
+      "amostras": 4406,
+      "inicio": "2004-03-10 18:00:00",
+      "fim": "2004-11-15 10:00:00",
+      "CO_medio": 2.050113481615978
+    },
+    {
+      "conjunto": "Validação",
+      "amostras": 1469,
+      "inicio": "2004-11-15 11:00:00",
+      "fim": "2005-01-28 11:00:00",
+      "CO_medio": 2.5484683458134785
+    },
+    {
+      "conjunto": "Teste",
+      "amostras": 1469,
+      "inicio": "2005-01-28 12:00:00",
+      "fim": "2005-04-04 14:00:00",
+      "CO_medio": 1.949693669162696
+    }
+  ],
+  "features": [
+    "PT08.S1(CO)",
+    "PT08.S2(NMHC)",
+    "PT08.S3(NOx)",
+    "PT08.S4(NO2)",
+    "PT08.S5(O3)",
+    "T",
+    "RH",
+    "AH"
+  ],
+  "dimensoes": [
+    8,
+    16,
+    1
+  ],
+  "parametros": 161,
+  "modelo_selecionado": "Inicial_16",
+  "melhor_epoca": 210,
+  "epocas_executadas": 210,
+  "ganho_validacao_percentual": 0.0,
+  "metricas_teste": [
+    {
+      "modelo": "Média do treino",
+      "MAE": 1.032260699022034,
+      "RMSE": 1.3042439920153166,
+      "R2": -0.005963529310130333
+    },
+    {
+      "modelo": "Ridge linear",
+      "MAE": 0.44226164772477106,
+      "RMSE": 0.5710542581296973,
+      "R2": 0.8071501547428815
+    },
+    {
+      "modelo": "MLP inicial",
+      "MAE": 0.38466543923196916,
+      "RMSE": 0.5272741317656376,
+      "R2": 0.835586499211616
+    },
+    {
+      "modelo": "MLP selecionada",
+      "MAE": 0.38466543923196916,
+      "RMSE": 0.5272741317656376,
+      "R2": 0.835586499211616
+    }
+  ],
+  "rmse_treino_selecionado": 0.27647713374312893,
+  "rmse_validacao_selecionado": 0.7306865367693395,
+  "ganho_media_percentual": 59.572431616043396,
+  "ganho_ridge_percentual": 7.666544070163713,
+  "p95_erro_absoluto": 1.17156014679424,
+  "erro_medio_assinado": 0.21427107827830866,
+  "p80_treino": 3.0,
+  "erros_por_faixa": [
+    {
+      "grupo": "CO até P80 do treino",
+      "n": 1210,
+      "MAE": 0.3598445364951195,
+      "RMSE": 0.5017069225875588,
+      "R2": 0.5021923918675477
+    },
+    {
+      "grupo": "CO acima de P80 do treino",
+      "n": 259,
+      "MAE": 0.5006240968056682,
+      "RMSE": 0.6331863253756003,
+      "R2": 0.5923037001337947
+    }
+  ]
+}
