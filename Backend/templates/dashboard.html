@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html lang="pt-Bbr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monitoramento de bueiros</title>
+  <style>
+    :root { font-family: system-ui, sans-serif; color: #192b37; background: #f2f5f5; }
+    body { max-width: 1200px; margin: auto; padding: 28px 20px; }
+    h1 { margin-bottom: 4px; } p { color: #526570; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 24px 0; }
+    .card, .table-wrap { background: white; border: 1px solid #dce5e5; border-radius: 10px; padding: 18px; }
+    .card strong { display: block; font-size: 1.7rem; margin-top: 8px; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; text-align: left; white-space: nowrap; }
+    th, td { padding: 12px; border-bottom: 1px solid #e6eded; }
+    th { color: #526570; font-size: .85rem; }
+    button { border: 0; border-radius: 6px; background: #175b56; color: white; padding: 10px 16px; cursor: pointer; }
+    .top { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    #mensagem { min-height: 1.5em; } .erro { color: #a12626; }
+  </style>
+</head>
+<body>
+  <div class="top"><div><h1>Monitoramento de bueiros</h1><p>Leituras recebidas dos sensores</p></div><button id="atualizar">Atualizar</button></div>
+  <div class="cards">
+    <div class="card">Total de leituras<strong id="total">—</strong></div>
+    <div class="card">Risco alto<strong id="alto">—</strong></div>
+    <div class="card">Atenção<strong id="atencao">—</strong></div>
+    <div class="card">Dados inválidos<strong id="invalidos">—</strong></div>
+  </div>
+  <h2>Últimas leituras</h2>
+  <p>Horários exibidos no fuso do seu navegador. São apresentadas as 100 leituras mais recentes.</p>
+  <p id="mensagem" role="status" aria-live="polite">Carregando leituras...</p>
+  <div class="table-wrap"><table><thead><tr><th>Recebido em</th><th>ID</th><th>Distância</th><th>Temperatura</th><th>Umidade</th><th>Risco</th></tr></thead><tbody id="leituras"></tbody></table></div>
+  <script>
+    const texto = (id, valor) => document.getElementById(id).textContent = valor;
+    const valor = (numero, unidade) => numero == null ? 'Sem leitura' : `${numero} ${unidade}`;
+    async function atualizar() {
+      const mensagem = document.getElementById('mensagem');
+      mensagem.className = '';
+      mensagem.textContent = 'Atualizando...';
+      try {
+        const respostas = await Promise.all([fetch('/api/resumo'), fetch('/api/leituras?limite=100')]);
+        if (respostas.some(resposta => !resposta.ok)) throw new Error('Falha na consulta');
+        const [resumo, historico] = await Promise.all(respostas.map(resposta => resposta.json()));
+        texto('total', resumo.total_leituras); texto('alto', resumo.por_risco.RISCO_ALTO);
+        texto('atencao', resumo.por_risco.ATENCAO); texto('invalidos', resumo.por_risco.DADOS_INVALIDOS);
+        const corpo = document.getElementById('leituras'); corpo.replaceChildren();
+        for (const leitura of historico.leituras) {
+          const linha = document.createElement('tr');
+          const data = new Date(leitura.recebido_em);
+          const campos = [Number.isNaN(data.getTime()) ? leitura.recebido_em : data.toLocaleString('pt-BR'), leitura.id,
+            valor(leitura.distancia_cm, 'cm'), valor(leitura.temperatura_c, '°C'), valor(leitura.umidade_relativa, '%'), leitura.risco_python.replaceAll('_', ' ')];
+          for (const campo of campos) { const celula = document.createElement('td'); celula.textContent = campo; linha.appendChild(celula); }
+          corpo.appendChild(linha);
+        }
+        mensagem.textContent = historico.leituras.length ? `Atualizado em ${new Date().toLocaleTimeString('pt-BR')}.` : 'Nenhuma leitura recebida ainda.';
+      } catch (erro) { mensagem.className = 'erro'; mensagem.textContent = 'Não foi possível carregar os dados. Tente atualizar novamente.'; }
+    }
+    document.getElementById('atualizar').addEventListener('click', atualizar);
+    atualizar();
+  </script>
+</body>
+</html>

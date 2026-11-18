@@ -1,11 +1,29 @@
-import sqlite3
-import tempfile
+import os
+import uuid
+
+import psycopg
+from psycopg import sql
+from psycopg.conninfo import make_conninfo
 import unittest
-from pathlib import Path
 from unittest.mock import patch
 
 from Backend.app import create_app
 from Backend.monitoramento import classificar_risco
+
+
+class TestConfiguracaoEPainel(unittest.TestCase):
+    def test_exige_url_do_banco(self):
+        with patch.dict(os.environ, {}, clear=True):
+            with self.assertRaisesRegex(RuntimeError, "DATABASE_URL"):
+                create_app()
+
+    @patch("Backend.armazenamento.inicializar")
+    def test_painel_disponivel(self, inicializar):
+        app = create_app({"TESTING": True, "DATABASE": "postgresql://exemplo/banco"})
+        resposta = app.test_client().get("/")
+        self.assertEqual(resposta.status_code, 200)
+        self.assertIn("Últimas leituras", resposta.get_data(as_text=True))
+        inicializar.assert_called_once()
 
 
 class TestMonitoramento(unittest.TestCase):
@@ -19,11 +37,18 @@ class TestMonitoramento(unittest.TestCase):
                 self.assertEqual(classificar_risco(distancia, umidade), esperado)
 
 
+@unittest.skipUnless(os.environ.get("TEST_DATABASE_URL"), "Configure TEST_DATABASE_URL para os testes PostgreSQL")
 class TestAPI(unittest.TestCase):
     def setUp(self):
-        self.pasta = tempfile.TemporaryDirectory()
-        self.addCleanup(self.pasta.cleanup)
-        self.config = {"TESTING": True, "DATABASE": str(Path(self.pasta.name) / "teste.sqlite3")}
+        base = os.environ["TEST_DATABASE_URL"]
+        esquema = "teste_" + uuid.uuid4().hex
+        with psycopg.connect(base, autocommit=True) as conexao:
+            conexao.execute(sql.SQL("CREATE SCHEMA {}").format(sql.Identifier(esquema)))
+        def limpar():
+            with psycopg.connect(base, autocommit=True) as conexao:
+                conexao.execute(sql.SQL("DROP SCHEMA {} CASCADE").format(sql.Identifier(esquema)))
+        self.addCleanup(limpar)
+        self.config = {"TESTING": True, "DATABASE": make_conninfo(base, options=f"-csearch_path={esquema}")}
         self.app = create_app(self.config)
         self.client = self.app.test_client()
         self.dados = dict(distancia_cm=15.0, temperatura_c=27.0, umidade_relativa=85.0,
@@ -111,7 +136,7 @@ class TestAPI(unittest.TestCase):
             self.assertEqual(self.client.get("/api/leituras?" + query).status_code, 400)
 
     def test_falha_banco_retorna_503_e_servidor_continua(self):
-        with patch("Backend.armazenamento.salvar", side_effect=sqlite3.OperationalError("teste")):
+        with patch("Backend.armazenamento.salvar", side_effect=psycopg.OperationalError("teste")):
             self.assertEqual(self.enviar().status_code, 503)
         self.assertEqual(self.enviar().status_code, 201)
 

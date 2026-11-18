@@ -1,10 +1,9 @@
 """API Flask. Execute a partir da raiz: python -m Backend.app."""
 
 import os
-import sqlite3
-from pathlib import Path
+import psycopg
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, render_template, request
 from werkzeug.exceptions import HTTPException
 
 from . import armazenamento
@@ -15,12 +14,14 @@ from .validacoes import DadosInvalidos, validar_leitura
 def create_app(config=None):
     app = Flask(__name__)
     app.config.from_mapping(
-        DATABASE=os.environ.get("BUEIRO_DATABASE", str(Path(__file__).parent / "dados" / "leituras.sqlite3")),
+        DATABASE=os.environ.get("DATABASE_URL"),
         MAX_CONTENT_LENGTH=16 * 1024,
     )
     if config:
         app.config.update(config)
     app.json.ensure_ascii = False
+    if not app.config["DATABASE"]:
+        raise RuntimeError("Configure a vari?vel DATABASE_URL com a conex?o PostgreSQL.")
     armazenamento.inicializar(app.config["DATABASE"])
 
     @app.errorhandler(DadosInvalidos)
@@ -31,10 +32,14 @@ def create_app(config=None):
     def erro_http(erro):
         return jsonify(erro=erro.name, mensagem=erro.description), erro.code
 
-    @app.errorhandler(sqlite3.Error)
+    @app.errorhandler(psycopg.Error)
     def erro_banco(erro):
-        app.logger.exception("Falha no armazenamento SQLite")
+        app.logger.exception("Falha no armazenamento PostgreSQL")
         return jsonify(erro="Armazenamento temporariamente indisponível."), 503
+
+    @app.get("/")
+    def dashboard():
+        return render_template("dashboard.html")
 
     @app.get("/health")
     def health():

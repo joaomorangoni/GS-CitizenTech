@@ -1,4 +1,4 @@
-﻿#include <DHT.h>
+#include <DHT.h>
 #include <WiFi.h>
 #include <HTTPClient.h>
 
