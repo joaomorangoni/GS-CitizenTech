@@ -1,9 +1,9 @@
 import json
-import tempfile
+import os
+import uuid
 import unittest
 from pathlib import Path
 
-from Backend.app import create_app
 from Backend.monitoramento import apresentar_leitura, processar_leitura
 from Backend.validacoes import validar_leitura
 from DataScience.integracao import coletar
@@ -25,16 +25,33 @@ class TestDataScience(unittest.TestCase):
         self.assertTrue(any(d['leitura']['risco_divergente'] for d in docs))
         self.assertTrue(any(d['leitura']['temperatura_c'] is None for d in docs))
 
+    @unittest.skipUnless(os.environ.get('TEST_DATABASE_URL'),
+                         'Configure TEST_DATABASE_URL para o teste PostgreSQL')
     def test_exportacao_contra_api_real_temporaria(self):
-        with tempfile.TemporaryDirectory() as pasta:
-            client = create_app({'TESTING': True, 'DATABASE': str(Path(pasta) / 'teste.sqlite3')}).test_client()
-            self.assertEqual(coletar('http://local', 'teste', 1, lambda url: client.get(url).json), [])
-            resposta = client.post('/api/leituras', json=dict(distancia_cm=None, temperatura_c=27,
-                umidade_relativa=80, risco='ATENCAO', tempo_ms=4294967295))
-            self.assertEqual(resposta.status_code, 201)
-            docs = coletar('http://local', 'teste', 1, lambda url: client.get(url).json)
-            self.assertEqual(docs, [{'origem_api': 'teste', 'dispositivo_id': 1, 'leitura': resposta.json}])
-            self.assertEqual(client.get('/api/resumo').json['total_leituras'], 1)
+        import psycopg
+        from psycopg import sql
+        from psycopg.conninfo import make_conninfo
+        from Backend.app import create_app
+
+        base = os.environ['TEST_DATABASE_URL']
+        esquema = 'datascience_teste_' + uuid.uuid4().hex
+        with psycopg.connect(base, autocommit=True) as conexao:
+            conexao.execute(sql.SQL('CREATE SCHEMA {}').format(sql.Identifier(esquema)))
+
+        def limpar():
+            with psycopg.connect(base, autocommit=True) as conexao:
+                conexao.execute(sql.SQL('DROP SCHEMA {} CASCADE').format(sql.Identifier(esquema)))
+
+        self.addCleanup(limpar)
+        banco = make_conninfo(base, options=f'-csearch_path={esquema}')
+        client = create_app({'TESTING': True, 'DATABASE': banco}).test_client()
+        self.assertEqual(coletar('http://local', 'teste', 1, lambda url: client.get(url).json), [])
+        resposta = client.post('/api/leituras', json=dict(distancia_cm=None, temperatura_c=27,
+            umidade_relativa=80, risco='ATENCAO', tempo_ms=4294967295))
+        self.assertEqual(resposta.status_code, 201)
+        docs = coletar('http://local', 'teste', 1, lambda url: client.get(url).json)
+        self.assertEqual(docs, [{'origem_api': 'teste', 'dispositivo_id': 1, 'leitura': resposta.json}])
+        self.assertEqual(client.get('/api/resumo').json['total_leituras'], 1)
 
     def test_paginacao_mais_de_mil(self):
         urls = []

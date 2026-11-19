@@ -1,3 +1,7 @@
+> Registro historico: resultados com SQLite anteriores a migracao para PostgreSQL.
+> Nao comprovam a integracao atual. O teste atual usa TEST_DATABASE_URL e schema
+> isolado no PostgreSQL; consulte o README de DataScience para executar.
+
 # Auditoria final da entrega — CitizenTech
 
 Escopo: artefatos de Cognitive Data Science. Nenhuma consulta, insercao, DDL ou teste foi executado contra bancos existentes durante o empacotamento. Evidencias reais anteriores foram auditadas.

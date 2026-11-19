@@ -43,4 +43,4 @@ Exemplo para executar em consumidor separado; não foi executado contra Oracle.
 MERGE evita duplicar chaves já importadas e mantém a primeira ocorrência registrada.
 Não atualiza cadastros, não infere IDs, não oferece atomicidade com MongoDB.
 Antes de importar, confira `origem_api` (até 100 caracteres), dispositivo cadastrado
-e origem exclusiva daquela base SQLite. Não use `simulacao-v1` para dados reais.
+e origem exclusiva daquela base PostgreSQL. Não use `simulacao-v1` para dados reais.

@@ -1,4 +1,4 @@
-"""Replica GET da API para JSON ou MongoDB; nao escreve no Backend/SQLite."""
+"""Replica GET da API para JSON ou MongoDB; nao escreve no banco do Backend."""
 import argparse
 import json
 import os
