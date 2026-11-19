@@ -1,0 +1,172 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3BF73173-7F1F-79D7-D746-86BD184C9567" name="ALERTA">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>1CE29D08-761A-5E61-16C4-21C572CEB990</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="alerta_id" id="7F0B184A-02C9-17D1-EAAE-9C06C7BFACF3">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>5D8BD2AB-AE93-F325-06CB-DEC26902B432</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>AC718BE2-31F6-9E97-167C-9A1A2A969B92</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="dispositivo_id" id="3E0CD20A-AD23-500C-C16D-9F7F64AAC31D">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>5616E433-52E6-7E0D-31BD-33248EF22E47</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>48987819-5DA7-BCC0-FF07-CDE4A1B449E4</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2EDF6E25-49B2-8F5D-604F-E6F6B27F72E9" referredColumn="2EC466FA-9BF9-3478-7D2F-EA6FADAC2EF6"/>
+</associations>
+</Column>
+<Column name="origem_api" id="76AAAD54-57F0-3B8A-2EDF-5361700B5776">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>E789E92A-DBFA-B843-B279-71B2C5CB9DE7</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>2697B8D6-E692-C491-346F-9FAA68411B54</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="leitura_api_id" id="EA0AC406-0123-F350-52C1-FEDB6433DA3C">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>AF7CD621-9475-F09C-6574-2168976471F5</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>D30B51DC-CB4C-DAE7-9E80-8A9DCC2373FC</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="recebido_em" id="8C7092F5-9CB4-90BD-456C-4521106CA81A">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>54166695-7916-33BA-CA44-79A758621CEB</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT046</logicalDatatype>
+<domain>C71466EF-F4D9-D982-DDDF-1A1C9468EBAE</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="risco_python" id="1AEADB7A-8B62-64B4-77AA-98EFCC828023">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>37E280B7-1F01-AF89-47AC-BD66037359AD</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>CA807C8F-28EE-AA96-8A99-673DB5CFF36C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mensagem" id="D986B02A-DFD8-99F9-3607-21CE0008CFA4">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>4BE88AD0-F1D0-8BE8-9368-1204E14DA0AC</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>0E1FD240-097B-BF89-D3A2-C61B8E699E93</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1A6E7CC1-9EBA-9008-5BF5-2EEB534D2BAF" name="pk_alerta">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>E280F72B-554C-801B-50DC-724AF19D0E67</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7F0B184A-02C9-17D1-EAAE-9C06C7BFACF3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="60160DDE-973B-7466-5A32-311AB4A77C66" name="uq_alerta_origem">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>3DA1BB8C-4E2F-6876-D593-1859013D9DB2</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="76AAAD54-57F0-3B8A-2EDF-5361700B5776"/>
+<colUsage columnID="EA0AC406-0123-F350-52C1-FEDB6433DA3C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B1028CA8-C685-AE38-0D4D-029DA5B35136" name="ix_alerta_dispositivo_data">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>B75B2235-A5BA-B537-560A-F08E871F4250</importedID>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3E0CD20A-AD23-500C-C16D-9F7F64AAC31D"/>
+<colUsage columnID="8C7092F5-9CB4-90BD-456C-4521106CA81A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="11E95F56-9072-9D83-5540-C3C3A6E3EE2E" name="fk_alerta_dispositivo">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3E0CD20A-AD23-500C-C16D-9F7F64AAC31D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="ck_alerta_id" directorySegmentName="seg_0" id="00FD3A04-37BF-C1F0-920E-F6E832E62C05">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>77C2F0CF-0A2C-732C-34FD-612C1C807E54</importedID>
+<rule><![CDATA[leitura_api_id > 0]]></rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="ck_alerta_risco" directorySegmentName="seg_0" id="E455825A-503A-2664-F433-F32F686471E9">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>56D1C1A6-AF4D-CAD0-3C85-E8E1C39F5CFC</importedID>
+<rule><![CDATA[risco_python IN ('ATENCAO', 'RISCO_ALTO', 'DADOS_INVALIDOS')]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

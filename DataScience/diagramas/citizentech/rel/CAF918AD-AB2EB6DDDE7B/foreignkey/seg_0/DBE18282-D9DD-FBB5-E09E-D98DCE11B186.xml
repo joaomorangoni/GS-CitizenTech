@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DBE18282-D9DD-FBB5-E09E-D98DCE11B186" containerWithKeyObject="F8F0632F-AB27-BBA6-82D7-2E48CC5E4F1F" localFKIndex="2069E098-5336-2EC0-C869-E767EA2EF1FB" name="fk_sensor_dispositivo">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>9CC60186-5777-8DAE-A346-5C0E0C3BB92E</importedID>
+<referredTableLongName>DISPOSITIVO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>59E48DE6-49B3-D426-DC8F-EB22B63D205F</referredTableID>
+<keyObject>F17A31E4-9C78-3DF0-B7FB-9F5F108FAB26</keyObject>
+<referredKeyID>F17A31E4-9C78-3DF0-B7FB-9F5F108FAB26</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>dispositivo_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

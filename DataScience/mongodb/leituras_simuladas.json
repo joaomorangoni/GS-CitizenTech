@@ -1,0 +1,116 @@
+[
+  {
+    "origem_api": "simulacao-v1",
+    "dispositivo_id": 1,
+    "leitura": {
+      "distancia_cm": 50,
+      "temperatura_c": 27,
+      "umidade_relativa": 50,
+      "risco_esp32": "SEM_RISCO_DETECTADO",
+      "risco_python": "SEM_RISCO_DETECTADO",
+      "tempo_ms": 5000,
+      "id": 1,
+      "recebido_em": "2026-11-17T12:00:00+00:00",
+      "alerta": "Nenhum risco detectado pelos critérios atuais. Continue o monitoramento.",
+      "risco_divergente": false,
+      "sensores_sem_leitura": [],
+      "analise_distancia": "ACIMA_DO_LIMITE_DE_ATENCAO",
+      "ambiente": {
+        "temperatura_disponivel": true,
+        "umidade_elevada": false
+      }
+    }
+  },
+  {
+    "origem_api": "simulacao-v1",
+    "dispositivo_id": 1,
+    "leitura": {
+      "distancia_cm": 15,
+      "temperatura_c": 27,
+      "umidade_relativa": 85,
+      "risco_esp32": "ATENCAO",
+      "risco_python": "ATENCAO",
+      "tempo_ms": 10000,
+      "id": 2,
+      "recebido_em": "2026-11-17T12:00:05+00:00",
+      "alerta": "Atenção: distância curta ou umidade elevada. Verifique as condições do bueiro.",
+      "risco_divergente": false,
+      "sensores_sem_leitura": [],
+      "analise_distancia": "CURTA",
+      "ambiente": {
+        "temperatura_disponivel": true,
+        "umidade_elevada": true
+      }
+    }
+  },
+  {
+    "origem_api": "simulacao-v1",
+    "dispositivo_id": 1,
+    "leitura": {
+      "distancia_cm": 10,
+      "temperatura_c": 27,
+      "umidade_relativa": 85,
+      "risco_esp32": "SEM_RISCO_DETECTADO",
+      "risco_python": "RISCO_ALTO",
+      "tempo_ms": 15000,
+      "id": 3,
+      "recebido_em": "2026-11-17T12:00:10+00:00",
+      "alerta": "Alerta: distância crítica e umidade elevada. Solicite avaliação do local e evite áreas alagadas.",
+      "risco_divergente": true,
+      "sensores_sem_leitura": [],
+      "analise_distancia": "CRITICA",
+      "ambiente": {
+        "temperatura_disponivel": true,
+        "umidade_elevada": true
+      }
+    }
+  },
+  {
+    "origem_api": "simulacao-v1",
+    "dispositivo_id": 1,
+    "leitura": {
+      "distancia_cm": null,
+      "temperatura_c": 27,
+      "umidade_relativa": 80,
+      "risco_esp32": "DADOS_INVALIDOS",
+      "risco_python": "DADOS_INVALIDOS",
+      "tempo_ms": 20000,
+      "id": 4,
+      "recebido_em": "2026-11-17T12:00:15+00:00",
+      "alerta": "Falha de leitura: verifique o sensor de distância ou umidade.",
+      "risco_divergente": false,
+      "sensores_sem_leitura": [
+        "distancia_cm"
+      ],
+      "analise_distancia": "SEM_LEITURA",
+      "ambiente": {
+        "temperatura_disponivel": true,
+        "umidade_elevada": true
+      }
+    }
+  },
+  {
+    "origem_api": "simulacao-v1",
+    "dispositivo_id": 1,
+    "leitura": {
+      "distancia_cm": 50,
+      "temperatura_c": null,
+      "umidade_relativa": 50,
+      "risco_esp32": "SEM_RISCO_DETECTADO",
+      "risco_python": "SEM_RISCO_DETECTADO",
+      "tempo_ms": 25000,
+      "id": 5,
+      "recebido_em": "2026-11-17T12:00:20+00:00",
+      "alerta": "Nenhum risco detectado pelos critérios atuais. Continue o monitoramento.",
+      "risco_divergente": false,
+      "sensores_sem_leitura": [
+        "temperatura_c"
+      ],
+      "analise_distancia": "ACIMA_DO_LIMITE_DE_ATENCAO",
+      "ambiente": {
+        "temperatura_disponivel": false,
+        "umidade_elevada": false
+      }
+    }
+  }
+]

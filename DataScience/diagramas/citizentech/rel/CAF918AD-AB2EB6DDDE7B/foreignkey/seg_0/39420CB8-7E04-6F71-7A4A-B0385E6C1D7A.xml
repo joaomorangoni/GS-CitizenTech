@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="39420CB8-7E04-6F71-7A4A-B0385E6C1D7A" containerWithKeyObject="59E48DE6-49B3-D426-DC8F-EB22B63D205F" localFKIndex="00AE4E3D-5E1A-C569-E6DE-A293C78DF2F3" name="fk_dispositivo_bueiro">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>67841954-CAD7-4EE8-1CD7-7AE606B7F1A6</importedID>
+<referredTableLongName>BUEIRO</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>24BF5504-C272-C17B-154E-D33F3472BF65</referredTableID>
+<keyObject>AE706A8A-C2CE-380C-3D67-7E8FA588A72B</keyObject>
+<referredKeyID>AE706A8A-C2CE-380C-3D67-7E8FA588A72B</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>bueiro_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

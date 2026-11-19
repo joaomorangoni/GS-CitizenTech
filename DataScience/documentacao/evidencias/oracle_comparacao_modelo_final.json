@@ -1,0 +1,731 @@
+{
+  "resultados": [
+    {
+      "verificacao": "COUNT(*) BUEIRO",
+      "passou": true,
+      "detalhe": "esperado 1; observado 1"
+    },
+    {
+      "verificacao": "COUNT(*) DISPOSITIVO",
+      "passou": true,
+      "detalhe": "esperado 1; observado 1"
+    },
+    {
+      "verificacao": "COUNT(*) SENSOR",
+      "passou": true,
+      "detalhe": "esperado 2; observado 2"
+    },
+    {
+      "verificacao": "COUNT(*) ALERTA",
+      "passou": true,
+      "detalhe": "esperado 3; observado 3"
+    },
+    {
+      "verificacao": "Preservacao integral dos registros",
+      "passou": true,
+      "detalhe": "Comparacao JSON de todos os campos e registros, ordenados por PK, antes/depois dos testes."
+    },
+    {
+      "verificacao": "Execucao SQL completa",
+      "passou": true,
+      "detalhe": "Finalizacao SQL sem erros inesperados; rejeicoes esperadas constam como testes aprovados."
+    },
+    {
+      "verificacao": "Tres consultas JOIN originais",
+      "passou": true,
+      "detalhe": "Inventario: 2 linhas; rastreabilidade: 3 linhas (leituras 2, 3 e 4); contagem do bueiro: 3 ocorrencias."
+    },
+    {
+      "verificacao": "Teste ORA-00001",
+      "passou": true,
+      "detalhe": "Rejeicao esperada confirmada pelo script 04_verificacao.sql."
+    },
+    {
+      "verificacao": "Teste ORA-02291",
+      "passou": true,
+      "detalhe": "Rejeicao esperada confirmada pelo script 04_verificacao.sql."
+    },
+    {
+      "verificacao": "Teste ORA-02290",
+      "passou": true,
+      "detalhe": "Rejeicao esperada confirmada pelo script 04_verificacao.sql."
+    },
+    {
+      "verificacao": "Modeler: tabelas",
+      "passou": true,
+      "detalhe": "4 tabelas no design nativo e no banco."
+    },
+    {
+      "verificacao": "Modeler: colunas e tipos",
+      "passou": true,
+      "detalhe": "16 colunas: nomes, ordem, tipos, precisao/escala, VARCHAR2 CHAR, nulabilidade e identity."
+    },
+    {
+      "verificacao": "Modeler: PK, UNIQUE e FK",
+      "passou": true,
+      "detalhe": "4 PKs, 1 UNIQUE composta e 3 FKs: nomes, colunas ordenadas, tabelas referenciadas e NO ACTION."
+    },
+    {
+      "verificacao": "Modeler: CHECKs",
+      "passou": true,
+      "detalhe": "3 CHECKs nomeados com regras equivalentes e habilitados no banco."
+    },
+    {
+      "verificacao": "Modeler: identity",
+      "passou": true,
+      "detalhe": "ALERTA.ALERTA_ID GENERATED ALWAYS AS IDENTITY."
+    }
+  ],
+  "banco": {
+    "COLUNA": [
+      {
+        "tabela": "ALERTA",
+        "coluna": "ALERTA_ID",
+        "posicao": 1,
+        "tipo": "NUMBER",
+        "precisao": null,
+        "escala": null,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "YES"
+      },
+      {
+        "tabela": "ALERTA",
+        "coluna": "DISPOSITIVO_ID",
+        "posicao": 2,
+        "tipo": "NUMBER",
+        "precisao": 10,
+        "escala": 0,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "ALERTA",
+        "coluna": "ORIGEM_API",
+        "posicao": 3,
+        "tipo": "VARCHAR2",
+        "precisao": null,
+        "escala": null,
+        "tamanho": 100,
+        "semantica": "C",
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "ALERTA",
+        "coluna": "LEITURA_API_ID",
+        "posicao": 4,
+        "tipo": "NUMBER",
+        "precisao": 19,
+        "escala": 0,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "ALERTA",
+        "coluna": "RECEBIDO_EM",
+        "posicao": 5,
+        "tipo": "TIMESTAMP(6) WITH TIME ZONE",
+        "precisao": null,
+        "escala": 6,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "ALERTA",
+        "coluna": "RISCO_PYTHON",
+        "posicao": 6,
+        "tipo": "VARCHAR2",
+        "precisao": null,
+        "escala": null,
+        "tamanho": 20,
+        "semantica": "C",
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "ALERTA",
+        "coluna": "MENSAGEM",
+        "posicao": 7,
+        "tipo": "VARCHAR2",
+        "precisao": null,
+        "escala": null,
+        "tamanho": 500,
+        "semantica": "C",
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "BUEIRO",
+        "coluna": "BUEIRO_ID",
+        "posicao": 1,
+        "tipo": "NUMBER",
+        "precisao": 10,
+        "escala": 0,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "BUEIRO",
+        "coluna": "DESCRICAO",
+        "posicao": 2,
+        "tipo": "VARCHAR2",
+        "precisao": null,
+        "escala": null,
+        "tamanho": 200,
+        "semantica": "C",
+        "nulo": "Y",
+        "identity": "NO"
+      },
+      {
+        "tabela": "BUEIRO",
+        "coluna": "LOCALIZACAO",
+        "posicao": 3,
+        "tipo": "VARCHAR2",
+        "precisao": null,
+        "escala": null,
+        "tamanho": 300,
+        "semantica": "C",
+        "nulo": "Y",
+        "identity": "NO"
+      },
+      {
+        "tabela": "DISPOSITIVO",
+        "coluna": "DISPOSITIVO_ID",
+        "posicao": 1,
+        "tipo": "NUMBER",
+        "precisao": 10,
+        "escala": 0,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "DISPOSITIVO",
+        "coluna": "BUEIRO_ID",
+        "posicao": 2,
+        "tipo": "NUMBER",
+        "precisao": 10,
+        "escala": 0,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "DISPOSITIVO",
+        "coluna": "DESCRICAO",
+        "posicao": 3,
+        "tipo": "VARCHAR2",
+        "precisao": null,
+        "escala": null,
+        "tamanho": 200,
+        "semantica": "C",
+        "nulo": "Y",
+        "identity": "NO"
+      },
+      {
+        "tabela": "SENSOR",
+        "coluna": "SENSOR_ID",
+        "posicao": 1,
+        "tipo": "NUMBER",
+        "precisao": 10,
+        "escala": 0,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "SENSOR",
+        "coluna": "DISPOSITIVO_ID",
+        "posicao": 2,
+        "tipo": "NUMBER",
+        "precisao": 10,
+        "escala": 0,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "SENSOR",
+        "coluna": "MODELO",
+        "posicao": 3,
+        "tipo": "VARCHAR2",
+        "precisao": null,
+        "escala": null,
+        "tamanho": 30,
+        "semantica": "C",
+        "nulo": "N",
+        "identity": "NO"
+      }
+    ],
+    "CHAVE": [
+      {
+        "tabela": "ALERTA",
+        "nome": "FK_ALERTA_DISPOSITIVO",
+        "tipo": "R",
+        "coluna": "DISPOSITIVO_ID",
+        "posicao": 1,
+        "pai": "DISPOSITIVO",
+        "coluna_pai": "DISPOSITIVO_ID",
+        "exclusao": "NO ACTION",
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "ALERTA",
+        "nome": "PK_ALERTA",
+        "tipo": "P",
+        "coluna": "ALERTA_ID",
+        "posicao": 1,
+        "pai": null,
+        "coluna_pai": null,
+        "exclusao": null,
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "ALERTA",
+        "nome": "UQ_ALERTA_ORIGEM",
+        "tipo": "U",
+        "coluna": "ORIGEM_API",
+        "posicao": 1,
+        "pai": null,
+        "coluna_pai": null,
+        "exclusao": null,
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "ALERTA",
+        "nome": "UQ_ALERTA_ORIGEM",
+        "tipo": "U",
+        "coluna": "LEITURA_API_ID",
+        "posicao": 2,
+        "pai": null,
+        "coluna_pai": null,
+        "exclusao": null,
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "BUEIRO",
+        "nome": "PK_BUEIRO",
+        "tipo": "P",
+        "coluna": "BUEIRO_ID",
+        "posicao": 1,
+        "pai": null,
+        "coluna_pai": null,
+        "exclusao": null,
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "DISPOSITIVO",
+        "nome": "FK_DISPOSITIVO_BUEIRO",
+        "tipo": "R",
+        "coluna": "BUEIRO_ID",
+        "posicao": 1,
+        "pai": "BUEIRO",
+        "coluna_pai": "BUEIRO_ID",
+        "exclusao": "NO ACTION",
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "DISPOSITIVO",
+        "nome": "PK_DISPOSITIVO",
+        "tipo": "P",
+        "coluna": "DISPOSITIVO_ID",
+        "posicao": 1,
+        "pai": null,
+        "coluna_pai": null,
+        "exclusao": null,
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "SENSOR",
+        "nome": "FK_SENSOR_DISPOSITIVO",
+        "tipo": "R",
+        "coluna": "DISPOSITIVO_ID",
+        "posicao": 1,
+        "pai": "DISPOSITIVO",
+        "coluna_pai": "DISPOSITIVO_ID",
+        "exclusao": "NO ACTION",
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "SENSOR",
+        "nome": "PK_SENSOR",
+        "tipo": "P",
+        "coluna": "SENSOR_ID",
+        "posicao": 1,
+        "pai": null,
+        "coluna_pai": null,
+        "exclusao": null,
+        "estado": "ENABLED"
+      }
+    ],
+    "CHECK": [
+      {
+        "tabela": "ALERTA",
+        "nome": "CK_ALERTA_ID",
+        "regra": "leitura_api_id > 0",
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "ALERTA",
+        "nome": "CK_ALERTA_RISCO",
+        "regra": "risco_python IN ('ATENCAO', 'RISCO_ALTO', 'DADOS_INVALIDOS')",
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "SENSOR",
+        "nome": "CK_SENSOR_MODELO",
+        "regra": "modelo IN ('HC-SR04', 'DHT22')",
+        "estado": "ENABLED"
+      }
+    ],
+    "IDENTITY": [
+      {
+        "tabela": "ALERTA",
+        "coluna": "ALERTA_ID",
+        "geracao": "ALWAYS"
+      }
+    ]
+  },
+  "modelo": {
+    "colunas": [
+      {
+        "tabela": "BUEIRO",
+        "coluna": "BUEIRO_ID",
+        "posicao": 1,
+        "tipo": "NUMBER",
+        "precisao": 10,
+        "escala": 0,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "BUEIRO",
+        "coluna": "DESCRICAO",
+        "posicao": 2,
+        "tipo": "VARCHAR2",
+        "precisao": null,
+        "escala": null,
+        "tamanho": 200,
+        "semantica": "C",
+        "nulo": "Y",
+        "identity": "NO"
+      },
+      {
+        "tabela": "BUEIRO",
+        "coluna": "LOCALIZACAO",
+        "posicao": 3,
+        "tipo": "VARCHAR2",
+        "precisao": null,
+        "escala": null,
+        "tamanho": 300,
+        "semantica": "C",
+        "nulo": "Y",
+        "identity": "NO"
+      },
+      {
+        "tabela": "ALERTA",
+        "coluna": "ALERTA_ID",
+        "posicao": 1,
+        "tipo": "NUMBER",
+        "precisao": null,
+        "escala": null,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "YES"
+      },
+      {
+        "tabela": "ALERTA",
+        "coluna": "DISPOSITIVO_ID",
+        "posicao": 2,
+        "tipo": "NUMBER",
+        "precisao": 10,
+        "escala": 0,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "ALERTA",
+        "coluna": "ORIGEM_API",
+        "posicao": 3,
+        "tipo": "VARCHAR2",
+        "precisao": null,
+        "escala": null,
+        "tamanho": 100,
+        "semantica": "C",
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "ALERTA",
+        "coluna": "LEITURA_API_ID",
+        "posicao": 4,
+        "tipo": "NUMBER",
+        "precisao": 19,
+        "escala": 0,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "ALERTA",
+        "coluna": "RECEBIDO_EM",
+        "posicao": 5,
+        "tipo": "TIMESTAMP(6) WITH TIME ZONE",
+        "precisao": null,
+        "escala": 6,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "ALERTA",
+        "coluna": "RISCO_PYTHON",
+        "posicao": 6,
+        "tipo": "VARCHAR2",
+        "precisao": null,
+        "escala": null,
+        "tamanho": 20,
+        "semantica": "C",
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "ALERTA",
+        "coluna": "MENSAGEM",
+        "posicao": 7,
+        "tipo": "VARCHAR2",
+        "precisao": null,
+        "escala": null,
+        "tamanho": 500,
+        "semantica": "C",
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "DISPOSITIVO",
+        "coluna": "DISPOSITIVO_ID",
+        "posicao": 1,
+        "tipo": "NUMBER",
+        "precisao": 10,
+        "escala": 0,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "DISPOSITIVO",
+        "coluna": "BUEIRO_ID",
+        "posicao": 2,
+        "tipo": "NUMBER",
+        "precisao": 10,
+        "escala": 0,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "DISPOSITIVO",
+        "coluna": "DESCRICAO",
+        "posicao": 3,
+        "tipo": "VARCHAR2",
+        "precisao": null,
+        "escala": null,
+        "tamanho": 200,
+        "semantica": "C",
+        "nulo": "Y",
+        "identity": "NO"
+      },
+      {
+        "tabela": "SENSOR",
+        "coluna": "SENSOR_ID",
+        "posicao": 1,
+        "tipo": "NUMBER",
+        "precisao": 10,
+        "escala": 0,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "SENSOR",
+        "coluna": "DISPOSITIVO_ID",
+        "posicao": 2,
+        "tipo": "NUMBER",
+        "precisao": 10,
+        "escala": 0,
+        "tamanho": 0,
+        "semantica": null,
+        "nulo": "N",
+        "identity": "NO"
+      },
+      {
+        "tabela": "SENSOR",
+        "coluna": "MODELO",
+        "posicao": 3,
+        "tipo": "VARCHAR2",
+        "precisao": null,
+        "escala": null,
+        "tamanho": 30,
+        "semantica": "C",
+        "nulo": "N",
+        "identity": "NO"
+      }
+    ],
+    "chaves": [
+      {
+        "tabela": "BUEIRO",
+        "nome": "PK_BUEIRO",
+        "tipo": "P",
+        "coluna": "BUEIRO_ID",
+        "posicao": 1,
+        "pai": null,
+        "coluna_pai": null,
+        "exclusao": null,
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "ALERTA",
+        "nome": "PK_ALERTA",
+        "tipo": "P",
+        "coluna": "ALERTA_ID",
+        "posicao": 1,
+        "pai": null,
+        "coluna_pai": null,
+        "exclusao": null,
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "ALERTA",
+        "nome": "UQ_ALERTA_ORIGEM",
+        "tipo": "U",
+        "coluna": "ORIGEM_API",
+        "posicao": 1,
+        "pai": null,
+        "coluna_pai": null,
+        "exclusao": null,
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "ALERTA",
+        "nome": "UQ_ALERTA_ORIGEM",
+        "tipo": "U",
+        "coluna": "LEITURA_API_ID",
+        "posicao": 2,
+        "pai": null,
+        "coluna_pai": null,
+        "exclusao": null,
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "DISPOSITIVO",
+        "nome": "PK_DISPOSITIVO",
+        "tipo": "P",
+        "coluna": "DISPOSITIVO_ID",
+        "posicao": 1,
+        "pai": null,
+        "coluna_pai": null,
+        "exclusao": null,
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "SENSOR",
+        "nome": "PK_SENSOR",
+        "tipo": "P",
+        "coluna": "SENSOR_ID",
+        "posicao": 1,
+        "pai": null,
+        "coluna_pai": null,
+        "exclusao": null,
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "ALERTA",
+        "nome": "FK_ALERTA_DISPOSITIVO",
+        "tipo": "R",
+        "coluna": "DISPOSITIVO_ID",
+        "posicao": 1,
+        "pai": "DISPOSITIVO",
+        "coluna_pai": "DISPOSITIVO_ID",
+        "exclusao": "NO ACTION",
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "DISPOSITIVO",
+        "nome": "FK_DISPOSITIVO_BUEIRO",
+        "tipo": "R",
+        "coluna": "BUEIRO_ID",
+        "posicao": 1,
+        "pai": "BUEIRO",
+        "coluna_pai": "BUEIRO_ID",
+        "exclusao": "NO ACTION",
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "SENSOR",
+        "nome": "FK_SENSOR_DISPOSITIVO",
+        "tipo": "R",
+        "coluna": "DISPOSITIVO_ID",
+        "posicao": 1,
+        "pai": "DISPOSITIVO",
+        "coluna_pai": "DISPOSITIVO_ID",
+        "exclusao": "NO ACTION",
+        "estado": "ENABLED"
+      }
+    ],
+    "checks": [
+      {
+        "tabela": "ALERTA",
+        "nome": "CK_ALERTA_ID",
+        "regra": "leitura_api_id > 0",
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "ALERTA",
+        "nome": "CK_ALERTA_RISCO",
+        "regra": "risco_python IN ('ATENCAO', 'RISCO_ALTO', 'DADOS_INVALIDOS')",
+        "estado": "ENABLED"
+      },
+      {
+        "tabela": "SENSOR",
+        "nome": "CK_SENSOR_MODELO",
+        "regra": "modelo IN ('HC-SR04', 'DHT22')",
+        "estado": "ENABLED"
+      }
+    ],
+    "identity": [
+      {
+        "tabela": "ALERTA",
+        "coluna": "ALERTA_ID",
+        "geracao": "ALWAYS"
+      }
+    ]
+  },
+  "sha256_sql": {
+    "03_consultas.sql": "56d7eaa9c35ae07ab899e96f255fd39c9e646cd2dcd2d412658968a8710d5bf5",
+    "04_verificacao.sql": "f130dc79a636b1a36275ec9161eb16c12e7a9f4a69ee8103148df6df69758617"
+  }
+}

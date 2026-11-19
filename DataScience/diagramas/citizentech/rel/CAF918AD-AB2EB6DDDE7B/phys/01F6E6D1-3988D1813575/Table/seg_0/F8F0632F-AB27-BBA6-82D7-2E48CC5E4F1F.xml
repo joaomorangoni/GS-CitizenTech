@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="SENSOR" directorySegmentName="seg_0" id="F8F0632F-AB27-BBA6-82D7-2E48CC5E4F1F">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="dispositivo_id" id="34EA72EE-D087-5D79-BD12-460A00BF6C8A">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="sensor_id" id="EF9E68EE-A31E-408E-0781-8775BE74305F">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="modelo" id="F448B6B3-E29F-8FEA-6D16-C0A49110589C">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="ix_sensor_dispositivo" id="243871F0-00C2-5E34-6A0D-83E6CEA256D3">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<logging></logging>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="fk_sensor_dispositivo" id="2069E098-5336-2EC0-C869-E767EA2EF1FB">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="pk_sensor" id="3F7FDA72-4E88-B77F-9829-92E29CE3652A">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.storage.oracle.TableCheckConstraintOracle">
+<TableCheckConstraint name="ck_sensor_modelo" id="078FDEAA-6AD5-133C-A3EF-296F7D28341F">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<nameChanged>true</nameChanged>
+</TableCheckConstraint>
+</tableCheckConstraints>
+</TableProxyOraclev20c>

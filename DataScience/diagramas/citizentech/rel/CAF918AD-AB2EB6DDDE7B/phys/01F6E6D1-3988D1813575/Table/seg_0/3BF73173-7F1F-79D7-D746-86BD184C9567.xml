@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="ALERTA" directorySegmentName="seg_0" id="3BF73173-7F1F-79D7-D746-86BD184C9567">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="risco_python" id="1AEADB7A-8B62-64B4-77AA-98EFCC828023">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="dispositivo_id" id="3E0CD20A-AD23-500C-C16D-9F7F64AAC31D">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="origem_api" id="76AAAD54-57F0-3B8A-2EDF-5361700B5776">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="alerta_id" id="7F0B184A-02C9-17D1-EAAE-9C06C7BFACF3">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="recebido_em" id="8C7092F5-9CB4-90BD-456C-4521106CA81A">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="mensagem" id="D986B02A-DFD8-99F9-3607-21CE0008CFA4">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="leitura_api_id" id="EA0AC406-0123-F350-52C1-FEDB6433DA3C">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="ix_alerta_dispositivo_data" id="B1028CA8-C685-AE38-0D4D-029DA5B35136">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<logging></logging>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="fk_alerta_dispositivo" id="11E95F56-9072-9D83-5540-C3C3A6E3EE2E">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="pk_alerta" id="1A6E7CC1-9EBA-9008-5BF5-2EEB534D2BAF">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.storage.oracle.TableCheckConstraintOracle">
+<TableCheckConstraint name="ck_alerta_id" id="00FD3A04-37BF-C1F0-920E-F6E832E62C05">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<nameChanged>true</nameChanged>
+</TableCheckConstraint>
+<TableCheckConstraint name="ck_alerta_risco" id="E455825A-503A-2664-F433-F32F686471E9">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<nameChanged>true</nameChanged>
+</TableCheckConstraint>
+</tableCheckConstraints>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="uq_alerta_origem" id="60160DDE-973B-7466-5A32-311AB4A77C66">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev20c>

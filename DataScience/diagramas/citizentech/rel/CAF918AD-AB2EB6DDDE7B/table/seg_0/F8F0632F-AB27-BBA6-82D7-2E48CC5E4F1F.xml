@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F8F0632F-AB27-BBA6-82D7-2E48CC5E4F1F" name="SENSOR">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>0C79F4E7-A4D7-242C-D94E-AED3BD5548D8</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="sensor_id" id="EF9E68EE-A31E-408E-0781-8775BE74305F">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>22B96793-EF97-F634-BA57-98A29D2B19DA</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>48987819-5DA7-BCC0-FF07-CDE4A1B449E4</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dispositivo_id" id="34EA72EE-D087-5D79-BD12-460A00BF6C8A">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>9F5D357C-A42A-9DD0-5855-04C68F60D60E</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>48987819-5DA7-BCC0-FF07-CDE4A1B449E4</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DBE18282-D9DD-FBB5-E09E-D98DCE11B186" referredColumn="2EC466FA-9BF9-3478-7D2F-EA6FADAC2EF6"/>
+</associations>
+</Column>
+<Column name="modelo" id="F448B6B3-E29F-8FEA-6D16-C0A49110589C">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>0F0B2F2D-7CEF-C7E3-5EB0-FC205AF27F64</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>F1271499-779D-ED23-6064-ECEFADB945E8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3F7FDA72-4E88-B77F-9829-92E29CE3652A" name="pk_sensor">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>712CB9AB-59AD-2015-DC1D-E9F9EAF584B3</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EF9E68EE-A31E-408E-0781-8775BE74305F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="243871F0-00C2-5E34-6A0D-83E6CEA256D3" name="ix_sensor_dispositivo">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>C55CFA36-C255-BE5D-C874-F45774ACDA4F</importedID>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="34EA72EE-D087-5D79-BD12-460A00BF6C8A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2069E098-5336-2EC0-C869-E767EA2EF1FB" name="fk_sensor_dispositivo">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="34EA72EE-D087-5D79-BD12-460A00BF6C8A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="ck_sensor_modelo" directorySegmentName="seg_0" id="078FDEAA-6AD5-133C-A3EF-296F7D28341F">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>D5B45966-B77B-8830-374B-96281B4A7B67</importedID>
+<rule><![CDATA[modelo IN ('HC-SR04', 'DHT22')]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

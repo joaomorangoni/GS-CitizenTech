@@ -1,0 +1,241 @@
+﻿{
+  ping: {
+    ok: 1
+  },
+  versaoServidor: '8.3.8'
+}
+{
+  colecao: [
+    {
+      name: 'leituras',
+      type: 'collection',
+      options: {
+        validator: {
+          '$jsonSchema': {
+            bsonType: 'object',
+            required: [
+              'origem_api',
+              'dispositivo_id',
+              'leitura'
+            ],
+            additionalProperties: false,
+            properties: {
+              _id: {},
+              origem_api: {
+                bsonType: 'string',
+                minLength: 1
+              },
+              dispositivo_id: {
+                bsonType: [
+                  'int',
+                  'long',
+                  'double'
+                ],
+                minimum: 1,
+                multipleOf: 1
+              },
+              leitura: {
+                bsonType: 'object',
+                additionalProperties: false,
+                required: [
+                  'id',
+                  'distancia_cm',
+                  'temperatura_c',
+                  'umidade_relativa',
+                  'risco_esp32',
+                  'risco_python',
+                  'tempo_ms',
+                  'recebido_em',
+                  'analise_distancia',
+                  'ambiente',
+                  'alerta',
+                  'risco_divergente',
+                  'sensores_sem_leitura'
+                ],
+                properties: {
+                  id: {
+                    bsonType: [
+                      'int',
+                      'long',
+                      'double'
+                    ],
+                    minimum: 1,
+                    multipleOf: 1
+                  },
+                  distancia_cm: {
+                    bsonType: [
+                      'double',
+                      'int',
+                      'long',
+                      'decimal',
+                      'null'
+                    ],
+                    minimum: 0
+                  },
+                  temperatura_c: {
+                    bsonType: [
+                      'double',
+                      'int',
+                      'long',
+                      'decimal',
+                      'null'
+                    ],
+                    minimum: -40,
+                    maximum: 80
+                  },
+                  umidade_relativa: {
+                    bsonType: [
+                      'double',
+                      'int',
+                      'long',
+                      'decimal',
+                      'null'
+                    ],
+                    minimum: 0,
+                    maximum: 100
+                  },
+                  risco_esp32: {
+                    enum: [
+                      'SEM_RISCO_DETECTADO',
+                      'ATENCAO',
+                      'RISCO_ALTO',
+                      'DADOS_INVALIDOS'
+                    ]
+                  },
+                  risco_python: {
+                    enum: [
+                      'SEM_RISCO_DETECTADO',
+                      'ATENCAO',
+                      'RISCO_ALTO',
+                      'DADOS_INVALIDOS'
+                    ]
+                  },
+                  tempo_ms: {
+                    bsonType: [
+                      'int',
+                      'long',
+                      'double'
+                    ],
+                    minimum: 0,
+                    maximum: 4294967295,
+                    multipleOf: 1
+                  },
+                  recebido_em: {
+                    bsonType: 'string',
+                    pattern: '^\\d{4}-\\d{2}-\\d{2}T.*\\+00:00$'
+                  },
+                  analise_distancia: {
+                    enum: [
+                      'SEM_LEITURA',
+                      'CRITICA',
+                      'CURTA',
+                      'ACIMA_DO_LIMITE_DE_ATENCAO'
+                    ]
+                  },
+                  ambiente: {
+                    bsonType: 'object',
+                    additionalProperties: false,
+                    required: [
+                      'temperatura_disponivel',
+                      'umidade_elevada'
+                    ],
+                    properties: {
+                      temperatura_disponivel: {
+                        bsonType: 'bool'
+                      },
+                      umidade_elevada: {
+                        bsonType: [
+                          'bool',
+                          'null'
+                        ]
+                      }
+                    }
+                  },
+                  alerta: {
+                    bsonType: 'string'
+                  },
+                  risco_divergente: {
+                    bsonType: 'bool'
+                  },
+                  sensores_sem_leitura: {
+                    bsonType: 'array',
+                    uniqueItems: true,
+                    items: {
+                      enum: [
+                        'distancia_cm',
+                        'temperatura_c',
+                        'umidade_relativa'
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        validationLevel: 'strict',
+        validationAction: 'error'
+      },
+      info: {
+        readOnly: false,
+        uuid: UUID('e63cdcbe-e770-46f2-94a3-ec2aa743c19a')
+      },
+      idIndex: {
+        v: 2,
+        key: {
+          _id: 1
+        },
+        name: '_id_'
+      }
+    }
+  ],
+  indices: [
+    {
+      v: 2,
+      key: {
+        _id: 1
+      },
+      name: '_id_'
+    },
+    {
+      v: 2,
+      key: {
+        origem_api: 1,
+        'leitura.id': 1
+      },
+      name: 'origem_api_1_leitura.id_1',
+      unique: true
+    },
+    {
+      v: 2,
+      key: {
+        dispositivo_id: 1,
+        'leitura.recebido_em': -1
+      },
+      name: 'dispositivo_id_1_leitura.recebido_em_-1'
+    },
+    {
+      v: 2,
+      key: {
+        'leitura.risco_python': 1
+      },
+      name: 'leitura.risco_python_1'
+    }
+  ]
+}
+{
+  totalColecao: 5,
+  totalSimulacao: 5,
+  documentosInvalidosPersistidos: 0
+}
+Os cinco documentos conferem integralmente com a fixture JSON.
+[
+  {
+    _id: null,
+    total: 5,
+    distancia_media_cm: 31.25,
+    temperatura_media_c: 27,
+    umidade_media: 70,
+    divergencias: 1
+  }
+]

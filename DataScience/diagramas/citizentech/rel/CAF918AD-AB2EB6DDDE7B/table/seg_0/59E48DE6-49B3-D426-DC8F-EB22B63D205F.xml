@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="59E48DE6-49B3-D426-DC8F-EB22B63D205F" name="DISPOSITIVO">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>DEE5D5C0-3246-A3A1-696C-D3788E225A1F</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="dispositivo_id" id="2EC466FA-9BF9-3478-7D2F-EA6FADAC2EF6">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>9C0EBD91-2499-5E9D-1304-ADD717216944</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>48987819-5DA7-BCC0-FF07-CDE4A1B449E4</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bueiro_id" id="02F2C3E1-C9C4-839E-1A87-A46A4E7491DB">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>0F46A810-D121-BE39-DA69-AA15DCF59F0B</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>48987819-5DA7-BCC0-FF07-CDE4A1B449E4</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="39420CB8-7E04-6F71-7A4A-B0385E6C1D7A" referredColumn="36E10F45-DDDF-0EA0-239F-6902E1FA1E02"/>
+</associations>
+</Column>
+<Column name="descricao" id="DF211A5D-3EAB-23BB-58C6-F14CFB52C3CD">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>062CD576-B5F3-3902-AFAB-C3ED93893742</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>DF923EEA-B67B-18E8-190D-83ED81CDCA33</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F17A31E4-9C78-3DF0-B7FB-9F5F108FAB26" name="pk_dispositivo">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>0C2495CB-5BE6-CECD-39BC-858EFC403B29</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2EC466FA-9BF9-3478-7D2F-EA6FADAC2EF6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FC34F36A-6D29-285A-21AD-480DE3A8E711" name="ix_dispositivo_bueiro">
+<sourceDDLFile>01_criacao.sql</sourceDDLFile>
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<importedID>1E140F4F-EBA8-15A4-F331-9D59E2A011C2</importedID>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="02F2C3E1-C9C4-839E-1A87-A46A4E7491DB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="00AE4E3D-5E1A-C569-E6DE-A293C78DF2F3" name="fk_dispositivo_bueiro">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:18:54 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="02F2C3E1-C9C4-839E-1A87-A46A4E7491DB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
