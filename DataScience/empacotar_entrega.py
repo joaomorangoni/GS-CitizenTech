@@ -130,7 +130,7 @@ def main():
         '- PASSOU: Mermaid corresponde aos campos e relacionamentos do modelo relacional; linhas nao identificadoras corrigidas.',
         '- PASSOU: evidencias reais MongoDB, cinco documentos, codigos 121/11000 e reinsercao sem duplicacao.',
         '- PASSOU: justificativa dos dois bancos, hipoteses, dicionario e limites documentados.',
-        '- PASSOU: quatro testes de contrato executados nesta preparacao; SQLite somente temporario.',
+        '- Testes Python: consulte documentacao/validacao.md; integracao PostgreSQL requer TEST_DATABASE_URL.',
         '- PASSOU: nenhum padrao de segredo ou URL autenticada detectado nos arquivos selecionados. '
         + ('Credencial Oracle local comparada sem revelar o valor.' if os.environ.get('CITIZENTECH_AUDIT_SECRET') else 'Comparacao com credencial local nao fornecida nesta execucao.'),
         '- PASSOU: Backend e Hardware sem diff; nenhum push, commit ou staging realizado.', '',

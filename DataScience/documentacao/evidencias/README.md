@@ -17,7 +17,7 @@ Oracle 26ai Free 23.26.3.0.0 local configurado e validado. Salve para a FIAP:
 - `../../diagramas/citizentech.dmd` e toda a pasta `citizentech/`: design nativo.
 
 Para reproduzir Oracle, siga `../oracle_local.md`; para reabrir o design,
-siga `../data_modeler.md`. Os bancos Oracle/MongoDB continuam separados do SQLite.
+siga `../data_modeler.md`. Os bancos Oracle/MongoDB continuam separados do PostgreSQL.
 
 | Arquivo | Conteúdo observado |
 | --- | --- |

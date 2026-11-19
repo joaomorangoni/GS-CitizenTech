@@ -1,3 +1,7 @@
+> Registro historico: resultados com SQLite anteriores a migracao para PostgreSQL.
+> Nao comprovam a integracao atual. O teste atual usa TEST_DATABASE_URL e schema
+> isolado no PostgreSQL; consulte o README de DataScience para executar.
+
 # Validação executada — 17/11/2026
 
 ## Atualização: Oracle local e Data Modeler executados

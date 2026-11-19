@@ -12,7 +12,7 @@
   16 colunas e três FKs. Comparação com o banco real aprovada.
 - [x] Capturas reais do Data Modeler: importação sem falhas e diagrama completo.
 - [x] Dicionário de dados, hipóteses de cadastro e justificativa Oracle/MongoDB.
-- [x] Exemplos de integração que preservam o SQLite operacional existente.
+- [x] Exemplos de integração que preservam o PostgreSQL operacional existente.
 - [x] Auditoria e empacotamento sem executar comandos nos bancos existentes.
 - [x] Exclusão de ambientes virtuais, caches, Git interno, arquivos `.env`,
   credenciais DPAPI, bancos locais e sessões `.local/.localz` do pacote.

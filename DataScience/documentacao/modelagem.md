@@ -10,7 +10,7 @@ Campos extras do POST são descartados. Não enviar um documento MongoDB ao POST
 
 | Campo na resposta | Tipo e significado |
 | --- | --- |
-| id | Inteiro positivo atribuído pelo SQLite, único somente naquela base |
+| id | Inteiro positivo atribuído pelo PostgreSQL, único somente naquela base |
 | distancia_cm | Número >= 0 ou null; distância ao alvo do ultrassom |
 | temperatura_c | Número de -40 a 80 ou null |
 | umidade_relativa | Número de 0 a 100 ou null; umidade do ar |
@@ -48,7 +48,7 @@ futuramente, mas a API atual não distingue suas origens.
 | ALERTA | alerta_id NUMBER identity; dispositivo_id NUMBER(10), FK; origem_api VARCHAR2(100 CHAR); leitura_api_id NUMBER(19); recebido_em TIMESTAMP(6) WITH TIME ZONE; risco_python VARCHAR2(20 CHAR); mensagem VARCHAR2(500 CHAR) | Nenhum |
 
 `origem_api` é um identificador lógico definido pelo operador para uma instância
-persistente de SQLite, não uma URL nem uma credencial. É limitado a 100 caracteres
+persistente de PostgreSQL, não uma URL nem uma credencial. É limitado a 100 caracteres
 para também caber no Oracle. Troque-o ao recriar/restaurar a base com IDs que possam
 colidir. A chave única `(origem_api, leitura_api_id)` impede duplicar uma ocorrência.
 ALERTA guarda somente ATENCAO, RISCO_ALTO e DADOS_INVALIDOS, uma ocorrência por leitura;
@@ -87,7 +87,7 @@ PK/FK, unicidade e JOIN: bueiros, dispositivos, sensores e ocorrências selecion
 MongoDB guarda a sequência de documentos com análises aninhadas, arrays e falhas
 null, preservando a forma da API e permitindo agregações do histórico. É uma escolha
 didática de persistência poliglota, não uma impossibilidade técnica de usar apenas
-um banco. SQLite continua sendo a persistência operacional da aplicação.
+um banco. PostgreSQL continua sendo a persistência operacional da aplicação.
 
 Não existe FK nem transação distribuída entre Oracle e MongoDB. Confira o cadastro
 antes de importar e reconcilie pelas chaves de origem/leitura. Uma importação pode

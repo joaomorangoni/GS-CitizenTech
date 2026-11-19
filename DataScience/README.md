@@ -1,6 +1,6 @@
 # CitizenTech — Cognitive Data Science, GS 2026.2
 
-Entrega independente em `DataScience/`. Backend Flask, SQLite e Hardware
+Entrega independente em `DataScience/`. Backend Flask, PostgreSQL e Hardware
 preservados. Os modelos Oracle/MongoDB são destinos acadêmicos opcionais;
 nenhum substitui a persistência atual. Dados de demonstração são fictícios.
 
@@ -37,7 +37,7 @@ Não reexecute criação/inserção Oracle sobre as mesmas tabelas.
 | documentacao/integracao_oracle.md | Exemplo Python com MERGE parametrizado |
 | documentacao/validacao.md | Resultados efetivamente executados e pendências |
 | integracao.py | Coleta GET paginada para JSON/MongoDB |
-| testes/test_datascience.py | Testes de contrato e coleta sem bancos externos |
+| testes/test_datascience.py | Testes de contrato e integração opcional com PostgreSQL |
 | requirements.txt | Dependência opcional PyMongo |
 | __init__.py, testes/__init__.py | Pacotes Python |
 
@@ -52,7 +52,6 @@ repositório completo e os comandos abaixo:
 ```powershell
 py -3 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r Backend\requirements.txt
-.\.venv\Scripts\python.exe -m unittest discover -s Backend\testes -v
 .\.venv\Scripts\python.exe -m unittest discover -s DataScience\testes -v
 ```
 
@@ -62,14 +61,30 @@ Se `py` não funcionar, use o caminho de uma instalação real. Neste ambiente:
 & "$env:LOCALAPPDATA\Python\pythoncore-3.14-64\python.exe" -m venv .venv
 ```
 
-Não é preciso ativar o venv. Testes usam SQLite temporário, sem alterar a base
-da aplicação. Testes de contrato/exportação não exigem PyMongo ou Oracle.
+Não é preciso ativar o venv. Três testes de contrato/coleta não exigem banco.
+O teste da API usa PostgreSQL e só executa com `TEST_DATABASE_URL` definida;
+sem essa variável, aparece como ignorado (skipped). PyMongo e Oracle não são
+necessários para esses testes.
+
+Para executar também a integração, use um banco PostgreSQL de testes acessível
+e um usuário com permissão para criar schemas:
+
+```powershell
+$env:TEST_DATABASE_URL = 'postgresql://usuario:senha@localhost:5432/citizentech_testes'
+.\.venv\Scripts\python.exe -m unittest discover -s DataScience\testes -v
+```
+
+O teste cria um schema exclusivo, configura `search_path` somente para ele e
+remove esse schema ao terminar, inclusive se uma asserção falhar. Não utiliza
+`DATABASE_URL` da aplicação. Se a conexão de testes estiver inválida, o teste
+falha em vez de ser ignorado.
 
 ## Executar API e exportar
 
-Terminal 1, na raiz:
+Terminal 1, na raiz, com PostgreSQL disponível e o banco já criado:
 
 ```powershell
+$env:DATABASE_URL = 'postgresql://usuario:senha@localhost:5432/citizentech'
 .\.venv\Scripts\python.exe -m Backend.app
 ```
 
@@ -81,14 +96,14 @@ $dados = @{distancia_cm=10; temperatura_c=27; umidade_relativa=85; risco='RISCO_
 Invoke-RestMethod 'http://127.0.0.1:5000/api/leituras' -Method Post -ContentType 'application/json' -Body ($dados | ConvertTo-Json) | ConvertTo-Json -Depth 8
 Invoke-RestMethod 'http://127.0.0.1:5000/api/status' | ConvertTo-Json -Depth 8
 Invoke-RestMethod 'http://127.0.0.1:5000/api/resumo' | ConvertTo-Json -Depth 8
-.\.venv\Scripts\python.exe -m DataScience.integracao --origem sqlite-demo-01 --dispositivo-id 1 --saida DataScience/exportacao.local.json
+.\.venv\Scripts\python.exe -m DataScience.integracao --origem postgres-demo-01 --dispositivo-id 1 --saida DataScience/exportacao.local.json
 ```
 
 O POST é uma demonstração opcional e grava uma leitura na API atual; a exportação
 usa somente GET. Pause envios do Wokwi/outros clientes durante a coleta completa.
 Cadastre dispositivo 1 no Oracle antes de associar seus dados. O payload atual
 não identifica dispositivo: só associe uma origem que represente o dispositivo
-escolhido. Troque `--origem` se recriar a base SQLite. A exportação também funciona
+escolhido. Troque `--origem` se recriar a base PostgreSQL. A exportação também funciona
 com API vazia e produz `[]`. Encerre o servidor com Ctrl+C.
 
 ## Oracle
@@ -153,7 +168,7 @@ Para importar o histórico real da API, após criar a coleção:
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -r DataScience\requirements.txt
 $env:MONGODB_URI = 'mongodb://127.0.0.1:27017'
-.\.venv\Scripts\python.exe -m DataScience.integracao --origem sqlite-demo-01 --dispositivo-id 1 --mongo
+.\.venv\Scripts\python.exe -m DataScience.integracao --origem postgres-demo-01 --dispositivo-id 1 --mongo
 Remove-Item Env:MONGODB_URI
 ```
 
