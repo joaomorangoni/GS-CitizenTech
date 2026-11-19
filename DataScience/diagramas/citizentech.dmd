@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="citizentech" id="1A7A4E46-D663-509E-733E-D9510F47A6E1" version="3.5">
+<createdBy>jaovi</createdBy>
+<createdTime>2026-11-18 02:01:46 UTC</createdTime>
+<ownerDesignName>citizentech</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>1A7A4E46-D663-509E-733E-D9510F47A6E1</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="D365D399-AA95-188D-C819-4CA234290DB5">
+<designStoragePath>C:\01_criacao</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

@@ -1,0 +1,9 @@
+test_exportacao_contra_api_real_temporaria (test_datascience.TestDataScience.test_exportacao_contra_api_real_temporaria) ... ok
+test_fixture_compativel_com_regras_reais (test_datascience.TestDataScience.test_fixture_compativel_com_regras_reais) ... ok
+test_paginacao_mais_de_mil (test_datascience.TestDataScience.test_paginacao_mais_de_mil) ... ok
+test_vinculo_exige_configuracao_explicita (test_datascience.TestDataScience.test_vinculo_exige_configuracao_explicita) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.263s
+
+OK

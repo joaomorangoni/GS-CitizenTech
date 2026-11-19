@@ -1,0 +1,28 @@
+erDiagram
+    BUEIRO ||..o{ DISPOSITIVO : possui
+    DISPOSITIVO ||..o{ SENSOR : possui
+    DISPOSITIVO ||..o{ ALERTA : registra
+    BUEIRO {
+        NUMBER_10 bueiro_id PK
+        VARCHAR2_200 descricao "opcional"
+        VARCHAR2_300 localizacao "opcional"
+    }
+    DISPOSITIVO {
+        NUMBER_10 dispositivo_id PK
+        NUMBER_10 bueiro_id FK
+        VARCHAR2_200 descricao "opcional"
+    }
+    SENSOR {
+        NUMBER_10 sensor_id PK
+        NUMBER_10 dispositivo_id FK
+        VARCHAR2_30 modelo "HC-SR04 ou DHT22"
+    }
+    ALERTA {
+        NUMBER alerta_id PK "identity"
+        NUMBER_10 dispositivo_id FK
+        VARCHAR2_100 origem_api UK "UK composta com leitura_api_id"
+        NUMBER_19 leitura_api_id UK
+        TIMESTAMP_TZ recebido_em
+        VARCHAR2_20 risco_python
+        VARCHAR2_500 mensagem
+    }

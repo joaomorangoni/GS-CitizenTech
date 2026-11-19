@@ -1,0 +1,5 @@
+# Exportacoes locais podem conter dados operacionais.
+*.local.json
+.env
+.env.*
+!.env.example

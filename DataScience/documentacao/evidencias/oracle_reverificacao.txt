@@ -1,0 +1,69 @@
+﻿
+BANNER_FULL
+----------------------------------------------------------------------------------------------------
+Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free
+Version 23.26.3.0.0
+
+
+
+USUARIO
+--------------------------------------------------------------------------------------------------------------------------------
+PDB
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CITIZENTECH
+FREEPDB1
+
+
+
+ BUEIRO_ID DESCRICAO			  DISPOSITIVO_ID  SENSOR_ID MODELO
+---------- ------------------------------ -------------- ---------- ----------
+	 1 Bueiro simulado CitizenTech		       1	  1 HC-SR04
+	 1 Bueiro simulado CitizenTech		       1	  2 DHT22
+
+
+ BUEIRO_ID DISPOSITIVO_ID ORIGEM_API	       LEITURA_API_ID RECEBIDO_EM			  RISCO_PYTHON	       MENSAGEM
+---------- -------------- -------------------- -------------- ----------------------------------- -------------------- ----------------------------------------------------------------------------------------------------
+         1              1 simulacao-v1                      2 17-NOV-26 12.00.05.000000 PM +00:00 ATENCAO              Atenção: distância curta ou umidade elevada. Verifique as condições do bueiro.
+         1              1 simulacao-v1                      3 17-NOV-26 12.00.10.000000 PM +00:00 RISCO_ALTO           Alerta: distância crítica e umidade elevada. Solicite avaliação do local e evite áreas alagadas.
+         1              1 simulacao-v1                      4 17-NOV-26 12.00.15.000000 PM +00:00 DADOS_INVALIDOS      Falha de leitura: verifique o sensor de distância ou umidade.
+
+
+ BUEIRO_ID OCORRENCIAS
+---------- -----------
+	 1	     3
+
+Cadastros, ocorrencias e tres FKs conferidos.
+PK duplicada rejeitada: ORA-00001.
+FK sem pai rejeitada: ORA-02291.
+CHECK do modelo rejeitou valor invalido: ORA-02290.
+Verificacao concluida; nenhuma alteracao dos testes persistida.
+
+PL/SQL procedure successfully completed.
+
+
+TABLE_NAME	CONSTRAINT_NAME 		    C STATUS
+--------------- ----------------------------------- - --------
+ALERTA		CK_ALERTA_ID			    C ENABLED
+ALERTA		CK_ALERTA_RISCO 		    C ENABLED
+ALERTA		SYS_C008661			    C ENABLED
+ALERTA		SYS_C008662			    C ENABLED
+ALERTA		SYS_C008663			    C ENABLED
+ALERTA		SYS_C008664			    C ENABLED
+ALERTA		SYS_C008665			    C ENABLED
+ALERTA		SYS_C008666			    C ENABLED
+ALERTA		SYS_C008667			    C ENABLED
+ALERTA		PK_ALERTA			    P ENABLED
+ALERTA		FK_ALERTA_DISPOSITIVO		    R ENABLED
+ALERTA		UQ_ALERTA_ORIGEM		    U ENABLED
+BUEIRO		PK_BUEIRO			    P ENABLED
+DISPOSITIVO	SYS_C008653			    C ENABLED
+DISPOSITIVO	PK_DISPOSITIVO			    P ENABLED
+DISPOSITIVO	FK_DISPOSITIVO_BUEIRO		    R ENABLED
+SENSOR		CK_SENSOR_MODELO		    C ENABLED
+SENSOR		SYS_C008656			    C ENABLED
+SENSOR		SYS_C008657			    C ENABLED
+SENSOR		PK_SENSOR			    P ENABLED
+SENSOR		FK_SENSOR_DISPOSITIVO		    R ENABLED
+
+21 rows selected.
+

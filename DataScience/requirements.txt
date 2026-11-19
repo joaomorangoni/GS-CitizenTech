@@ -1,0 +1,2 @@
+# Somente para gravacao opcional no MongoDB. Exportacao JSON usa biblioteca padrao.
+pymongo>=4.10,<5
